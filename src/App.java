@@ -3,9 +3,11 @@ import java.util.Scanner;
 
 public class App
 {
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
-        ItemsRunMethod();
+        Book.GetBook();
+        Book.GetAuthor();
+        Book.GetPages();
     }
     
     
@@ -15,14 +17,14 @@ public class App
     
         try (Scanner sc = new Scanner(System.in))
         {
-            System.out.print("Enter an item name: ");
+            System.out.print("Enter an item name, empty will end: ");
             String itemName = sc.nextLine();
     
             while(!itemName.equals(""))
             {
                 Items item = new Items(itemName);
                 items.add(item);
-                System.out.print("Enter an item name: ");
+                System.out.print("Enter an item name, empty will end: ");
                 itemName = sc.nextLine();
             }
     
