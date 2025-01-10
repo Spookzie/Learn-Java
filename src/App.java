@@ -5,9 +5,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        Book.GetBook();
-        Book.GetAuthor();
-        Book.GetPages();
+        PaymentSystem();
     }
     
     
@@ -32,6 +30,34 @@ public class App
             {
                 System.out.println(items.get(i));
             }
+        }
+    }
+
+
+    @SuppressWarnings("unlikely-arg-type")
+    private static void PaymentSystem()
+    {
+        try (Scanner sc = new Scanner(System.in))
+        {
+            //Initialize card and Terminal
+            System.out.print("Enter payment card balance: ");
+            PaymentCard myCard = new PaymentCard(Double.parseDouble(sc.nextLine()));
+
+            PaymentTerminal mess = new PaymentTerminal(myCard);
+            mess.BuyAffordableMeal(myCard);
+            mess.BuyAffordableMeal(myCard);
+            mess.BuyAffordableMeal(myCard);
+            mess.BuyAffordableMeal(myCard);
+            mess.BuyAffordableMeal(myCard);
+
+            System.out.print("Add more money to your card: ");
+            myCard.AddMoney(Double.parseDouble(sc.nextLine()));
+            
+            mess.BuyHeartyMeal(myCard);
+            mess.BuyHeartyMeal(myCard);
+            mess.BuyHeartyMeal(myCard);        
+
+            System.out.println(mess);
         }
     }
 }
