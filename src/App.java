@@ -5,7 +5,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        PaymentSystem();
+        
     }
     
     
@@ -34,7 +34,6 @@ public class App
     }
 
 
-    @SuppressWarnings("unlikely-arg-type")
     private static void PaymentSystem()
     {
         try (Scanner sc = new Scanner(System.in))
@@ -59,5 +58,27 @@ public class App
 
             System.out.println(mess);
         }
+    }
+
+
+    //int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    //System.out.println(BinarySearch(nums, 0));
+    private static int BinarySearch(int[] arr, int x)
+    {
+        int l = 0, h = arr.length - 1;
+
+        while(l <= h)
+        {
+            int mid = (l + h) /2;
+
+            if(arr[mid] == x)
+                return mid;
+            else if(arr[mid] > x)
+                h = mid - 1;
+            else
+                l = mid + 1;
+        }
+
+        return -1;
     }
 }
