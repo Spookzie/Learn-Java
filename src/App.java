@@ -5,10 +5,11 @@ public class App
 {
     public static void main(String[] args)
     {
-        
+        Inheritance();
     }
     
     
+    //Takes in items' names and prints out the name back along with their time stamp.
     private static void ItemsRunMethod()
     {
         ArrayList<Items> items = new ArrayList<>();
@@ -41,7 +42,7 @@ public class App
             //Initialize card and Terminal
             System.out.print("Enter payment card balance: ");
             PaymentCard myCard = new PaymentCard(Double.parseDouble(sc.nextLine()));
-
+            
             PaymentTerminal mess = new PaymentTerminal(myCard);
             mess.BuyAffordableMeal(myCard);
             mess.BuyAffordableMeal(myCard);
@@ -59,8 +60,8 @@ public class App
             System.out.println(mess);
         }
     }
-
-
+    
+    
     //int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     //System.out.println(BinarySearch(nums, 0));
     private static int BinarySearch(int[] arr, int x)
@@ -76,9 +77,25 @@ public class App
             else if(arr[mid] > x)
                 h = mid - 1;
             else
-                l = mid + 1;
+            l = mid + 1;
         }
 
         return -1;
+    }
+    
+    
+    private static void Inheritance()
+    {
+        Person p = new Person("Person", "person's address");
+    
+        Student s = new Student("Student", "student's address");
+        s.Study();
+        s.Study();
+    
+        Teacher t = new Teacher("Teacher", "teacher's address", 27000);
+    
+        System.out.println(p);
+        System.out.println(s);
+        System.out.println(t);
     }
 }
