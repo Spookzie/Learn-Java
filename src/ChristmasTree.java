@@ -7,12 +7,12 @@ public class ChristmasTree
         try (Scanner sc = new Scanner(System.in))
         {
             System.out.print("Enter size of triangle: ");
-            int size = Integer.parseInt(sc.nextLine());
+            int leafSize = Integer.parseInt(sc.nextLine());
             
-            for(int i=1; i<=size; i++)
+            for(int i=1; i<=leafSize; i++)
             {    
-                //Leaves
-                for(int j=size; j>=i; j--)
+                //  LEAVES  //
+                for(int j=leafSize; j>=i; j--)
                 {    
                     if (j==i)
                     {   
@@ -32,13 +32,14 @@ public class ChristmasTree
                 System.out.println();
             }
 
-            //Bark
-            for (int i=1; i<=2; i++)
+            //  BARK    //
+            int barkSize = leafSize/4;
+            for (int i=1; i<=barkSize; i++)
             {
-                for(int j=1; j<=size-2; j++)
+                for(int j=1; j<=leafSize-barkSize; j++)
                     System.out.print(" ");
             
-                for(int k=1; k<=3; k++)
+                for(int k=1; k<=barkSize+1; k++)
                     System.out.print("*");
             
                 System.out.println();
