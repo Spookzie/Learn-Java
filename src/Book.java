@@ -1,59 +1,33 @@
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Scanner;
-
-public class Book
-{
-    private static final String filePath = "../res/Books.txt";
+public class Book implements Packable
+{   
+    private final String author;
+    private final String name;
     
+    private final double weight;
 
-    public static void GetBook()
+    
+    //Constructor
+    public Book(String author, String name, double weight)
     {
-        try( Scanner sc = new Scanner(Paths.get(filePath)))
-        {
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine();
-                String[] details = line.split(", ");
-
-                System.out.println(details[0]);
-            }
-        } catch(IOException ex) {
-            System.out.println("Error: " + ex);
-        }
-    }
-    
-    
-    public static void GetAuthor()
-    {
-        try( Scanner sc = new Scanner(Paths.get(filePath)))
-        {
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine();
-                String[] details = line.split(", ");
-
-                System.out.println(details[1]);
-            }
-        } catch(IOException ex) {
-            System.out.println("Error: " + ex);
-        }
+        this.author = author;
+        this.name = name;
+        this.weight = weight;
     }
 
 
-    public static void GetPages()
+    //  Box interface methods   //
+    //---------------------------
+    @Override
+    public double weight()
     {
-        try( Scanner sc = new Scanner(Paths.get(filePath)))
-        {
-            while(sc.hasNextLine())
-            {
-                String line = sc.nextLine();
-                String[] details = line.split(", ");
+        return this.weight;
+    }
+    //---------------------------
 
-                System.out.println(details[2]);
-            }
-        } catch(IOException ex) {
-            System.out.println("Error: " + ex);
-        }
+
+    @Override
+    public String toString()
+    {
+        return this.author + ": " + this.name;
     }
 }

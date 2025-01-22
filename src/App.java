@@ -5,7 +5,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        Inheritance();
+        PackableInterface();
     }
     
     
@@ -62,10 +62,11 @@ public class App
     }
     
     
-    //int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    //System.out.println(BinarySearch(nums, 0));
-    private static int BinarySearch(int[] arr, int x)
+    private static void BinarySearch()
     {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int x = 8;
+
         int l = 0, h = arr.length - 1;
 
         while(l <= h)
@@ -73,14 +74,15 @@ public class App
             int mid = (l + h) /2;
 
             if(arr[mid] == x)
-                return mid;
+            {
+                System.out.println("Index of required no. is: " + mid);
+                break;
+            }
             else if(arr[mid] > x)
                 h = mid - 1;
             else
-            l = mid + 1;
+                l = mid + 1;
         }
-
-        return -1;
     }
     
     
@@ -97,5 +99,51 @@ public class App
         System.out.println(p);
         System.out.println(s);
         System.out.println(t);
+    }
+
+
+    private static void PackableInterface()
+    {
+        //IMPLEMENTATION 1: hard coding new items without box
+        /*
+        Book book1 = new Book("Fyodor Dostoevsky", "Crime and Punishment", 2);
+        Book book2 = new Book("Robert Martin", "Clean Code", 1);
+        Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
+
+        CD cd1 = new CD("Pink Floyd", "Dark Side of the Moon", 1973);
+        CD cd2 = new CD("Wigwam", "Nuclear Nightclub", 1975);
+        CD cd3 = new CD("Rendezvous Park", "Closer to Being Here", 2012);
+
+        System.out.println(book1);
+        System.out.println(book2);
+        System.out.println(book3);
+        System.out.println(cd1);
+        System.out.println(cd2);
+        System.out.println(cd3);
+        */
+
+        //IMPLEMENTATION 2: hard adding new items but with box
+        /*
+        Box box = new Box(10);
+
+        box.Add(new Book("Fyodor Dostoevsky", "Crime and Punishment", 2)) ;
+        box.Add(new Book("Robert Martin", "Clean Code", 1));
+        box.Add(new Book("Kent Beck", "Test Driven Development", 0.7));
+        
+        box.Add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
+        box.Add(new CD("Wigwam", "Nuclear Nightclub", 1975));
+        box.Add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
+
+        System.out.println(box);
+        */
+
+        //IMPLEMENTATION 3: Adding new items using packer
+        Packer packer = new Packer();
+        try (Scanner sc = new Scanner(System.in))
+        {
+            System.out.println("How many items you want to add? ");
+            int itemCount = Integer.parseInt(sc.nextLine());
+            System.out.println(packer.GiveBoxOfThings(itemCount));
+        }
     }
 }
