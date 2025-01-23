@@ -5,7 +5,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        PackableInterface();
+        WarehouseClass();
     }
     
     
@@ -145,5 +145,20 @@ public class App
             int itemCount = Integer.parseInt(sc.nextLine());
             System.out.println(packer.GiveBoxOfThings(itemCount));
         }
+    }
+
+
+    private static void WarehouseClass()
+    {
+        Warehouse warehouse = new Warehouse();
+        warehouse.AddProduct("Milk", 3, 10);
+        warehouse.AddProduct("Coffee", 5, 6);
+        warehouse.AddProduct("Buttermilk", 2, 20);
+        warehouse.AddProduct("Yogurt", 2, 20);
+
+        System.out.println("Products:");
+
+        for (String product: warehouse.Products())
+            System.out.println(product);
     }
 }
