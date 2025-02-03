@@ -5,7 +5,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        WarehouseClass();
+        StreamsDivisible();
     }
     
     
@@ -160,5 +160,29 @@ public class App
 
         for (String product: warehouse.Products())
             System.out.println(product);
+    }
+
+
+    private static void StreamsAverage()
+    {
+        Streams streams = new Streams();
+        streams.Average();
+    }
+
+
+    private static void StreamsDivisible()
+    {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(-17);
+        numbers.add(-5);
+        numbers.add(7);
+
+        Streams streams = new Streams();
+
+        ArrayList<Integer> divisible = streams.Divisible(numbers);
+
+        divisible.stream().forEach(num -> System.out.println(num));
     }
 }
