@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class App
 {
     public static void main(String[] args)
     {
-        StreamsDivisible();
+        MostLeastFreqElemInArr();
     }
     
     
@@ -184,5 +183,38 @@ public class App
         ArrayList<Integer> divisible = streams.Divisible(numbers);
 
         divisible.stream().forEach(num -> System.out.println(num));
+    }
+
+
+    private static void BasicHashing()
+    {
+        Hashing hashing = new Hashing();
+        
+        hashing.BasicIntArrayMethod();
+
+        System.out.println("\n------------------------------------\n");
+
+        hashing.BasicStringMethod();
+    }
+
+
+    private static void MostLeastFreqElemInArr()
+    {
+        int[] arr = {10,5,10,15,10,5};
+
+        HashMap<Integer, Integer> freq = new HashMap<>();
+        int leastNum = arr[0], mostNum  = arr[0];
+
+        for(int i=0; i<arr.length; i++)
+        {
+            freq.put(arr[i], freq.getOrDefault(arr[i], 0)+1);
+
+            if(freq.get(arr[i]) < freq.get(leastNum))
+                leastNum  = arr[i];
+            else if(freq.get(arr[i]) > freq.get(mostNum))
+                mostNum = arr[i];
+        }
+
+        System.out.println("Most occuring: " + mostNum + "\nLeast Occuring: " + leastNum);
     }
 }
