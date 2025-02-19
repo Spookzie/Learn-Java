@@ -4,7 +4,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        MostLeastFreqElemInArr();
+        Sorting();
     }
     
     
@@ -216,5 +216,18 @@ public class App
         }
 
         System.out.println("Most occuring: " + mostNum + "\nLeast Occuring: " + leastNum);
+    }
+
+
+    private static void Sorting()
+    {
+        Sorting sortingTechniques = new Sorting();
+
+        sortingTechniques.SelectionSort();
+        sortingTechniques.BubbleSort();
+        sortingTechniques.InsertionSort();
+        sortingTechniques.MergeSort();
+        sortingTechniques.RecursiveBubbleSort();
+        sortingTechniques.RecursiveInsertionSort();
     }
 }
